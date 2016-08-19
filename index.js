@@ -11,7 +11,7 @@ function reducePropsToState(propsList) {
 }
 
 function handleStateChangeOnClient(stringClassNames) {
-  document.body.className = stringClassNames || '';
+  document.getElementsByTagName("html")[0].className = stringClassNames || '';
 }
 
 var DocumentTitle = React.createClass({

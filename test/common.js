@@ -3,15 +3,15 @@
 'use strict';
 var expect = require('expect.js'),
     React = require('react'),
-    BodyClassName = require('../');
+    HtmlClassName = require('../');
 
-describe('BodyClassName', function () {
+describe('HtmlClassName', function () {
   before(function () {
-    BodyClassName.canUseDOM = false;
+    HtmlClassName.canUseDOM = false;
   });
 
   it('has a displayName', function () {
-    var el = React.createElement(BodyClassName);
+    var el = React.createElement(HtmlClassName);
     expect(el.type.displayName).to.be.a('string');
     expect(el.type.displayName).not.to.be.empty();
   });
@@ -19,7 +19,7 @@ describe('BodyClassName', function () {
   it('hides itself from the DOM', function () {
     var Component = React.createClass({
       render: function () {
-        return React.createElement(BodyClassName, {className: 'irrelevant'},
+        return React.createElement(HtmlClassName, {className: 'irrelevant'},
           React.createElement('div', null, 'hello')
         );
       }
@@ -31,7 +31,7 @@ describe('BodyClassName', function () {
   it('throws an error if it has multiple children', function (done) {
     var Component = React.createClass({
       render: function () {
-        return React.createElement(BodyClassName, {className: 'irrelevant'},
+        return React.createElement(HtmlClassName, {className: 'irrelevant'},
           React.createElement('div', null, 'hello'),
           React.createElement('div', null, 'world')
         );
@@ -44,7 +44,7 @@ describe('BodyClassName', function () {
       done();
     });
   });
-  
+
   it('works with complex children', function () {
     var Component1 = React.createClass({
       render: function() {
@@ -56,7 +56,7 @@ describe('BodyClassName', function () {
     });
     var Component2 = React.createClass({
       render: function () {
-        return React.createElement(BodyClassName, {className: 'irrelevant'},
+        return React.createElement(HtmlClassName, {className: 'irrelevant'},
           React.createElement('div', null,
             React.createElement('div', null, 'a'),
             React.createElement('div', null, 'b'),
@@ -81,36 +81,36 @@ describe('BodyClassName', function () {
   });
 });
 
-describe('BodyClassName.rewind', function () {
+describe('HtmlClassName.rewind', function () {
   it('clears the mounted instances', function () {
-    BodyClassName.rewind();
+    HtmlClassName.rewind();
     React.renderToStaticMarkup(
-      React.createElement(BodyClassName, {className: 'a'},
-        React.createElement(BodyClassName, {className: 'b'},
-          React.createElement(BodyClassName, {className: 'c'}))
+      React.createElement(HtmlClassName, {className: 'a'},
+        React.createElement(HtmlClassName, {className: 'b'},
+          React.createElement(HtmlClassName, {className: 'c'}))
       )
     );
-    expect(BodyClassName.peek()).to.equal('a b c');
-    BodyClassName.rewind();
-    expect(BodyClassName.peek()).to.equal(undefined);
+    expect(HtmlClassName.peek()).to.equal('a b c');
+    HtmlClassName.rewind();
+    expect(HtmlClassName.peek()).to.equal(undefined);
   });
   it('returns all the classNames used', function () {
     React.renderToStaticMarkup(
-      React.createElement(BodyClassName, {className: 'one'},
-        React.createElement(BodyClassName, {className: 'two'},
-          React.createElement(BodyClassName, {className: 'three'}))
+      React.createElement(HtmlClassName, {className: 'one'},
+        React.createElement(HtmlClassName, {className: 'two'},
+          React.createElement(HtmlClassName, {className: 'three'}))
       )
     );
-    expect(BodyClassName.rewind()).to.equal('one two three');
+    expect(HtmlClassName.rewind()).to.equal('one two three');
   });
   it('returns undefined if no mounted instances exist', function () {
     React.renderToStaticMarkup(
-      React.createElement(BodyClassName, {className: 'a'},
-        React.createElement(BodyClassName, {className: 'b'},
-          React.createElement(BodyClassName, {className: 'c'}))
+      React.createElement(HtmlClassName, {className: 'a'},
+        React.createElement(HtmlClassName, {className: 'b'},
+          React.createElement(HtmlClassName, {className: 'c'}))
       )
     );
-    BodyClassName.rewind();
-    expect(BodyClassName.peek()).to.equal(undefined);
+    HtmlClassName.rewind();
+    expect(HtmlClassName.peek()).to.equal(undefined);
   });
 });

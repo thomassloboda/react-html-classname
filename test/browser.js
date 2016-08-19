@@ -3,11 +3,11 @@
 'use strict';
 var expect = require('expect.js'),
     React = require('react'),
-    BodyClassName = require('../');
+    HtmlClassName = require('../');
 
-describe('BodyClassName (in a browser)', function () {
+describe('HtmlClassName (in a browser)', function () {
   afterEach(function () {
-    React.unmountComponentAtNode(global.document.body);
+    React.unmountComponentAtNode(global.document.getElementsByTagName("html")[0]);
   });
   before(function () {
     // Prepare the globals React expects in a browser
@@ -17,7 +17,7 @@ describe('BodyClassName (in a browser)', function () {
     global.window.location = {};
     global.window.navigator = {userAgent: 'Chrome'};
     console.debug = console.log;
-    BodyClassName.canUseDOM = true;
+    HtmlClassName.canUseDOM = true;
   });
   after(function () {
     delete global.window;
@@ -25,18 +25,18 @@ describe('BodyClassName (in a browser)', function () {
     delete console.debug;
   });
 
-  it('changes the document body class name on mount', function (done) {
+  it('changes the document html class name on mount', function (done) {
     var className = 'hello world';
     var Component = React.createClass({
       componentDidMount: function () {
-        expect(global.document.body.className).to.equal(className);
+        expect(global.document.getElementsByTagName("html")[0].className).to.equal(className);
         done();
       },
       render: function () {
-        return React.createElement(BodyClassName, {className: className});
+        return React.createElement(HtmlClassName, {className: className});
       }
     });
-    React.render(React.createElement(Component), global.document.body);
+    React.render(React.createElement(Component), global.document.getElementsByTagName("html")[0]);
   });
 
   it('supports nesting, gathering all classNames used', function (done) {
@@ -46,12 +46,12 @@ describe('BodyClassName (in a browser)', function () {
       componentDidMount: function () {
         setTimeout(function () {
           expect(called).to.be(true);
-          expect(global.document.body.className).to.equal(firstName + ' ' + secondName);
+          expect(global.document.getElementsByTagName("html")[0].className).to.equal(firstName + ' ' + secondName);
           done();
         });
       },
       render: function () {
-        return React.createElement(BodyClassName, {className: firstName});
+        return React.createElement(HtmlClassName, {className: firstName});
       }
     });
     var secondName = 'foo bar';
@@ -60,11 +60,11 @@ describe('BodyClassName (in a browser)', function () {
         called = true;
       },
       render: function () {
-        return React.createElement(BodyClassName, {className: secondName},
+        return React.createElement(HtmlClassName, {className: secondName},
           React.DOM.div(null, React.createElement(Component1))
         );
       }
     });
-    React.render(React.createElement(Component2), global.document.body);
+    React.render(React.createElement(Component2), global.document.getElementsByTagName("html")[0]);
   });
 });
