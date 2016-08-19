@@ -11,7 +11,7 @@ Built with [React Side Effect](https://github.com/gaearon/react-side-effect).
 ## Installation
 
 ```
-npm install --save http://github.com/thomassloboda/react-html-classname
+npm install --save react-html-classname
 ```
 
 Dependencies: React >= 0.13.0
