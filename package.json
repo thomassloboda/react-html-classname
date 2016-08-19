@@ -23,7 +23,7 @@
   "author": "Thomas Sloboda <thomas@sloboda.fr> (http://github.com/thomassloboda)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/PactCoffee/react-html-classname/issues"
+    "url": "https://github.com/thomassloboda/react-html-classname/issues"
   },
   "homepage": "https://github.com/thomassloboda/react-html-classname",
   "devDependencies": {
