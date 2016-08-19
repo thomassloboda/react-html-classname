@@ -1,6 +1,6 @@
 {
   "name": "react-html-classname",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A declarative, nested way to manipulate your html's className",
   "main": "index.js",
   "scripts": {
