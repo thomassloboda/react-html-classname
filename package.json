@@ -1,0 +1,40 @@
+{
+  "name": "react-html-classname",
+  "version": "0.0.0",
+  "description": "A declarative, nested way to manipulate your html's className",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "test:watch": "npm run test -- --watch",
+    "lint": "jshint index.js test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thomassloboda/react-html-classname"
+  },
+  "keywords": [
+    "react",
+    "component",
+    "react-component",
+    "html.className",
+    "title",
+    "jsx"
+  ],
+  "author": "Thomas Sloboda <thomas@sloboda.fr> (http://github.com/thomassloboda)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PactCoffee/react-html-classname/issues"
+  },
+  "homepage": "https://github.com/thomassloboda/react-html-classname",
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "global": "^4.3.0",
+    "jshint": "^2.5.6",
+    "mocha": "^2.0.1",
+    "react": "^0.13.0"
+  },
+  "dependencies": {
+    "lodash.uniq": "^3.2.2",
+    "react-side-effect": "^1.0.0"
+  }
+}
