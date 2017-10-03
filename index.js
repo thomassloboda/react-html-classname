@@ -1,6 +1,8 @@
 'use strict';
 
 var React = require('react'),
+  PropTypes = require('prop-types'),
+  createReactClass = require('create-react-class'),
   uniq = require('lodash.uniq'),
   withSideEffect = require('react-side-effect');
 
@@ -14,9 +16,9 @@ function handleStateChangeOnClient(stringClassNames) {
   document.getElementsByTagName("html")[0].className = stringClassNames || '';
 }
 
-var DocumentTitle = React.createClass({
+var DocumentTitle = createReactClass({
   propTypes: {
-    className: React.PropTypes.string.isRequired
+    className: PropTypes.string.isRequired
   },
 
   render: function render() {
