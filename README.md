@@ -1,7 +1,8 @@
 React Html ClassName
 ====================
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/thomassloboda/react-html-classname.svg)](https://greenkeeper.io/)
+[![NPM version][npm-image]][npm-url]
+[![Downloads][downloads-image]][npm-url]
 
 Provides a declarative way to specify `document.getElementsByTagName("html")[0].className` in a single-page app.  
 This component can be used on server side as well.
