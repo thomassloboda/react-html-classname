@@ -76,3 +76,7 @@ class Thing {
 If you use it on server, call `HtmlClassName.rewind()` **after rendering components to string** to retrieve the combined class name. You can then embed this className into HTML page template.
 
 Because this component keeps track of mounted instances, **you have to make sure to call `rewind` on server**, or you'll get a memory leak.
+
+[npm-url]: https://npmjs.org/package/react-html-classname
+[downloads-image]: http://img.shields.io/npm/dm/react-html-classname.svg
+[npm-image]: http://img.shields.io/npm/v/react-html-classname.svg
